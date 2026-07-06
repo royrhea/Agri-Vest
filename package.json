@@ -3,15 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "i18next": "^26.3.4",
+    "i18nexus-cli": "^5.1.1",
+    "lucide-react": "^1.23.0",
+    "motion": "^12.42.2",
     "next": "16.2.10",
+    "next-i18next": "^16.0.7",
+    "next-intl": "^4.13.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-i18next": "^17.0.8",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
