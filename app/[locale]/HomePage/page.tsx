@@ -72,7 +72,7 @@ export default function page() {
             {/* Left: Headline */}
             <motion.div className="relative z-10" variants={fadeUp}>
               <h1 className="text-6xl font-extrabold uppercase leading-[0.95] tracking-tight text-white drop-shadow-sm md:text-7xl">
-                {t('header')}<br />
+                {t('header')}
                 <br />
                 Farming
               </h1>
