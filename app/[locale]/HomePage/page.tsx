@@ -10,6 +10,7 @@ import { Poppins } from 'next/font/google';
 import { motion } from 'motion/react';
 import NavBar from '@/app/[locale]/navbar';
 import { useTranslations } from 'next-intl';
+import Footer from '../Footer';
 // Shared easing + stagger so every section feels like one choreography, not scattered effects
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
@@ -222,6 +223,7 @@ export default function page() {
           </motion.div>
         </main>
       </div>
+    
     </div>
   );
 }

@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
+import Footer from "@/app/[locale]/Footer";
 import {
   MapPin,
   Share2,
@@ -122,7 +123,7 @@ function StatDivider() {
 
 export default function PropertyDetail() {
   return (
-    <div className="min-h-screen bg-[#b8cb8a] px-6 pb-20 font-sans md:px-14">
+    <div className="min-h-screen bg-[#b8cb8a] px-6 pb-20 font-sans md:px-14 ">
       <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
@@ -188,7 +189,7 @@ export default function PropertyDetail() {
               <Bookmark size={16} />
             </button>
           </div>
-                <Image src="/farm.jpg" alt="Sundance Corn Estate aerial view" fill priority className="object-cover border-2 border-[#c8e639]"  />
+                <Image src="/farm.jpg" alt="Sundance Corn Estate aerial view" fill priority className="object-cover border-2 border-[#c8e639] z-0"  />
                 
  <div className=" mb-6 absolute left-5 top-74 flex bg-[#c8e639] border-2 border-[#212224] text-neutral-900 rounded-full px-3 py-1.5 inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide ">
              <p className=" flex items-center gap-1.5 text-sm font-medium ">
@@ -246,7 +247,7 @@ export default function PropertyDetail() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="mt-12 rounded-2xl bg-white/50 p-6 border-2 border-[#c8e639]  md:p-8"
+          className="md:mt-22  mt-55 rounded-2xl bg-white/50 p-6 border-2 border-[#c8e639]  md:p-8 z-20"
         >
           <div className="flex items-center justify-between">
             <h2 className="text-xs font-bold uppercase tracking-[0.15em] text-[#343d07]">Live field telemetry</h2>
@@ -402,28 +403,7 @@ export default function PropertyDetail() {
         </motion.section>
 
         {/* Footer */}
-        <footer className="mt-20 grid grid-cols-2 gap-8 border-t border-neutral-900/40 pt-10 text-sm sm:grid-cols-4">
-          {[
-            ["Company", ["About", "Careers", "Press", "Contact"]],
-            ["Marketplace", ["Browse farms", "Sell land", "Yield reports"]],
-            ["Resources", ["Investor FAQ", "Fund passbook", "Compliance"]],
-            ["Support", ["Help center", "Live chat", "System status"]],
-          ].map(([heading, links]) => (
-            <div key={heading as string}>
-              <p className="text-xs font-bold uppercase tracking-wide text-neutral-600">{heading as string}</p>
-              <ul className="mt-3 flex flex-col gap-2">
-                {(links as string[]).map((link) => (
-                  <li key={link}>
-                    <Link href="#" className="flex items-center gap-1.5 text-neutral-700 hover:text-neutral-900">
-                      {link === "Live chat" && <MessageCircle size={13} />}
-                      {link}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </footer>
+        <Footer/>
       </div>
     </div>
   );

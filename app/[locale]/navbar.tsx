@@ -3,7 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
-
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 const NAV_LINKS = [
   { label: "Home", href: "/HomePage" },
   { label: "Explore Farmland", href: "/Explore" },
@@ -15,12 +16,18 @@ const NAV_LINKS = [
 const easeOut = [0.16, 1, 0.3, 1] as const;
 
 export default function NavBar() {
-  const [active, setActive] = useState("Home");
+  const pathname = usePathname();
+  const [active, setActive] = useState(pathname);
+
+  useEffect(() => {
+    setActive(pathname);
+  }, [pathname]);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
+    <>
     <motion.header
-      className="relative flex items-center justify-between py-7 z-30"
+      className="relative flex items-center justify-between py-3 z-30 sticky top-0 bg-transparent backdrop-blur-sm border-b border-neutral-200  w-full px-1 sm:px-6 lg:px-8 text-[#526108] text-bold font-mono"
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: easeOut }}
@@ -33,28 +40,26 @@ export default function NavBar() {
       </Link>
 
       {/* Desktop nav */}
-      <nav className="hidden gap-10 text-sm font-medium text-neutral-900 md:flex">
-        {NAV_LINKS.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            onClick={() => setActive(label)}
-            className="relative pb-1"
+       <nav className="hidden gap-10 text-md font-medium md:flex">
+      {NAV_LINKS.map(({ label, href }) => (
+        <Link key={label} href={href} className="relative pb-1">
+          <motion.span
+            whileHover={{ y: -2 }}
+            transition={{ duration: 0.2 }}
+            className={active === href ? "text-neutral-900 font-semibold" : "text-[#374106] font-bold"}
           >
-            <motion.span whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-              {label}
-            </motion.span>
-            {active === label && (
-              <motion.div
-                layoutId="nav-underline"
-                className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-neutral-900"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </Link>
-        ))}
-      </nav>
-
+            {label}
+          </motion.span>
+          {active === href && (
+            <motion.div
+              layoutId="nav-underline"
+              className="absolute left-0 right-0 -bottom-0.5 h-[2px] bg-neutral-900"
+              transition={{ type: "spring", stiffness: 380, damping: 30 }}
+            />
+          )}
+        </Link>
+      ))}
+    </nav>
       <motion.button
         className="hidden rounded-full border border-neutral-800 px-5 py-2 text-sm font-medium text-neutral-900 transition hover:bg-neutral-900 hover:text-white md:block"
         whileHover={{ scale: 1.04 }}
@@ -125,7 +130,7 @@ export default function NavBar() {
                   <Link
                     href={href}
                     onClick={() => {
-                      setActive(label);
+                      setActive(href);
                       setMobileOpen(false);
                     }}
                     className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition ${
@@ -151,6 +156,9 @@ export default function NavBar() {
           </motion.div>
         )}
       </AnimatePresence>
+      
     </motion.header>
+     <div className="h-[0.] w-full bg-gradient-to-r from-[#c8e639] via-[#8fd0c8] to-[#a78bd8]" />
+    </>
   );
 }
