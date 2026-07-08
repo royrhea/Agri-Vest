@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "i18next": "^26.3.4",
     "i18nexus-cli": "^5.1.1",
     "lucide-react": "^1.23.0",

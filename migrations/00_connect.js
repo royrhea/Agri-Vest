@@ -1,10 +1,16 @@
+// MONGODB_URI is forwarded into this process via run_all.js fork env option.
+// When running a migration script directly, ensure MONGODB_URI is set in your shell.
+
 // Set DNS servers programmatically to bypass loopback DNS issues in node environment
 require('dns').setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1']);
 
 const { MongoClient } = require('mongodb');
 
-const URI = "mongodb+srv://royrishita744_db_user:dk5jAUszdOjMZ3ls@cluster0.kzfs2rf.mongodb.net/?appName=Cluster0";
-const DB_NAME = "agrivest_db";
+const URI = process.env.MONGODB_URI;
+if (!URI) {
+  throw new Error('MONGODB_URI is not defined. Set it in .env or export it in your shell.');
+}
+const DB_NAME = 'agrivest_db';
 
 let client = null;
 
