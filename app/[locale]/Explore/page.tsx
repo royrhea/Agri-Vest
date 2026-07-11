@@ -120,27 +120,13 @@ export default function ExploreCatalog() {
     <div className="min-h-screen bg-[#b8cb8a] font-sans relative">
       <div className="fixed inset-0 z-0 pointer-events-none">
          <Image src="/bga.jpg" alt="" fill priority className="object-cover object-bottom opacity-30" />
-         <div className="absolute inset-0 bg-gradient-to-b from-[#8c8c81]/70 via-[#749a86]/90 to-[#374f42]" />
+         <div className="absolute inset-0 bg-linear-to-b from-[#8c8c81]/70 via-[#749a86]/90 to-[#374f42]" />
       </div>
 
       <div className="relative z-10">
         <NavBar />
 
-        <div className="mx-auto max-w-[1400px] px-6 pt-12 pb-24 md:px-14">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: easeOut }}
-            className="text-center md:text-left mb-12"
-          >
-            <h1 className="text-5xl md:text-7xl font-extrabold uppercase tracking-tight text-white drop-shadow-sm mb-4">
-              Explore <span className="text-[#c8e639]">Farmland</span>
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl max-w-2xl font-medium">
-              Discover and invest in high-yield agricultural opportunities powered by state-of-the-art farming technology.
-            </p>
-          </motion.div>
+        <div className="mx-auto max-w-350 px-6 pt-12 pb-24 md:px-14">
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -219,7 +205,7 @@ export default function ExploreCatalog() {
                       fill 
                       className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
                     
                     <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
                       <div className="flex gap-2">
@@ -243,7 +229,7 @@ export default function ExploreCatalog() {
                     </div>
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-6 flex flex-col grow">
                     
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div className="flex flex-col">
@@ -260,7 +246,7 @@ export default function ExploreCatalog() {
                       </div>
                     </div>
 
-                    <div className="mb-6 flex-grow">
+                    <div className="mb-6 grow">
                       <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider mb-2 flex items-center gap-1"><Cpu size={12}/> Applied Tech</span>
                       <div className="flex flex-wrap gap-2">
                         {farm.tech.map((t) => (
@@ -282,7 +268,7 @@ export default function ExploreCatalog() {
                           whileInView={{ width: `${farm.fundedPct}%` }}
                           viewport={{ once: true }}
                           transition={{ duration: 1, ease: easeOut }}
-                          className="h-full bg-gradient-to-r from-[#8da514] to-[#c8e639] rounded-full"
+                          className="h-full bg-linear-to-r from-[#8da514] to-[#c8e639] rounded-full"
                         />
                       </div>
                     </div>

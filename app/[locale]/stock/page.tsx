@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
-import NavBar from "../../navbar";
+import NavBar from "../navbar";
 import {
   TrendingUp,
   TrendingDown,
@@ -35,7 +35,7 @@ export default function StockDetailsPage() {
     <div className="min-h-screen bg-[#f7f9f2] font-sans pb-20 selection:bg-[#c8e639] selection:text-black">
       <NavBar />
       
-      <div className="mx-auto max-w-[1400px] px-6 pt-8">
+      <div className="mx-auto max-w-350 px-6 pt-8">
         
         {/* Header & Tabs */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
@@ -71,8 +71,7 @@ export default function StockDetailsPage() {
                 <TrendingDown size={14} /> 12.5% from last month
               </p>
             </div>
-            {/* Simple decoration to replace image */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gray-50 rounded-full border-[8px] border-white z-0 opacity-50"></div>
+            
           </div>
 
           {/* Card 2 */}
@@ -180,10 +179,10 @@ export default function StockDetailsPage() {
         </div>
 
         {/* Bottom Split Container */}
-        <div className="bg-[#1b2620] rounded-[2.5rem] p-4 flex flex-col lg:flex-row gap-4 shadow-2xl overflow-hidden min-h-[600px]">
+        <div className="bg-[#1b2620] rounded-[2.5rem] p-4 flex flex-col lg:flex-row gap-4 shadow-2xl overflow-hidden min-h-150">
           
           {/* Left List Pane */}
-          <div className="w-full lg:w-[400px] flex flex-col">
+          <div className="w-full lg:w-100 flex flex-col">
             <div className="flex items-center justify-between px-6 py-4">
               <h2 className="text-white font-extrabold text-lg">Active Portfolio</h2>
               
@@ -232,7 +231,7 @@ export default function StockDetailsPage() {
           </div>
 
           {/* Right Details Pane */}
-          <div className="flex-1 bg-gradient-to-br from-[#c8e639] to-[#b0cc2f] rounded-[2rem] p-8 flex flex-col justify-between shadow-inner relative overflow-hidden">
+          <div className="flex-1 bg-linear-to-br from-[#c8e639] to-[#b0cc2f] rounded-4xl p-8 flex flex-col justify-between shadow-inner relative overflow-hidden">
             {/* Background Decoration */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             
@@ -254,17 +253,6 @@ export default function StockDetailsPage() {
                         <TrendingUp size={16} className="text-[#1b2620]" />
                       </div>
                       <span className="text-xl font-extrabold text-[#1b2620]">{selectedStock.name}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="hidden md:block">
-                    <p className="text-xs font-bold text-[#1b2620]/60 uppercase tracking-widest mb-2">Manager</p>
-                    <div className="flex items-center gap-3">
-                      <Image src="/farmer.jpg" alt="Manager" width={32} height={32} className="rounded-full border-2 border-white/50 object-cover w-8 h-8" />
-                      <div>
-                        <p className="text-sm font-extrabold text-[#1b2620]">James Carter</p>
-                        <p className="text-[10px] font-bold text-[#1b2620]/60 uppercase">Portfolio Director</p>
-                      </div>
                     </div>
                   </div>
 
